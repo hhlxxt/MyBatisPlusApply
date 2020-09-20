@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@MapperScan({"com.zoro.products.mapper","com.baomidou.mybatisplus.core.mapper"})
+@MapperScan({"com.zoro.products.mapper"})
 public class MybatisPlusConfig {
     /**
      * 分页插件
