@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zoro.products.domain.Comments;
 import com.zoro.products.domain.Products;
-import com.zoro.products.service.CommentsService;
 import com.zoro.products.service.ProductsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,9 +23,6 @@ public class ProductsServiceTest {
 
     @Autowired
     ProductsService productsService ;
-
-    @Autowired
-    CommentsService commentsService ;
 
     @Test
     public void saveProcucts(){
@@ -69,20 +65,20 @@ public class ProductsServiceTest {
     public void custPage(){
 
         Map<String, Object> hashMap = new HashMap<>(4);
-        hashMap.put("productId",1);
-        hashMap.put("isGood","test");
-        hashMap.put("id",1000000);
+        hashMap.put("category",'1');//450ms
+        //hashMap.put("category",1);//类型转换 68710ms
+        hashMap.put("sucategory","苹果");
+        hashMap.put("current",20000);
         hashMap.put("pageSize",20);
 
         long start = System.currentTimeMillis();
-        List<Comments> comments = commentsService.selectPage(hashMap);
+        List<Products> productsList = productsService.selectPage(hashMap);
         long end = System.currentTimeMillis();
-        System.out.println((end - start)/1000);
-        for (int i = 0; i < comments.size(); i++) {
-            Comments comment = comments.get(i);
-            System.out.println(comment.getId()+"\t"+comment.getProductId()+"\t"+new String(comment.getIsGoodComment()));
+        System.out.println((end - start));
+        for (int i = 0; i < productsList.size(); i++) {
+            Products products = productsList.get(i);
+            System.out.println(products.getId()+"\t"+products.getCategory()+"\t"+new String(products.getSubCategory())+"\t"+products.getCategorydesc());
         }
 
     }
-
 }
