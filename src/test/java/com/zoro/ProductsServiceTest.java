@@ -45,7 +45,7 @@ public class ProductsServiceTest {
 
         Page<Products> productsPage = new Page<>(1,20 , true);
         long start = System.currentTimeMillis();
-        Page<Products> page = productsService.page(new Page<>(), queryWrapper);
+        Page<Products> page = productsService.page(productsPage, queryWrapper);
         System.out.println(page.getPages());
         System.out.println(page.getTotal());
         System.out.println(page.getRecords());
@@ -72,7 +72,7 @@ public class ProductsServiceTest {
         hashMap.put("pageSize",20);
 
         long start = System.currentTimeMillis();
-        List<Products> productsList = productsService.selectPage(hashMap);
+        List<Products> productsList = productsService.customSelectPage(hashMap);
         long end = System.currentTimeMillis();
         System.out.println((end - start));
         for (int i = 0; i < productsList.size(); i++) {

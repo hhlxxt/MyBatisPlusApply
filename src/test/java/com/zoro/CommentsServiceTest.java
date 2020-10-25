@@ -35,7 +35,7 @@ public class CommentsServiceTest {
         hashMap.put("pageSize",20);
 
         long start = System.currentTimeMillis();
-        List<Comments> comments = commentsService.selectPage(hashMap);
+        List<Comments> comments = commentsService.customSelectPage(hashMap);
         long end = System.currentTimeMillis();
         System.out.println((end - start));
         for (int i = 0; i < comments.size(); i++) {
