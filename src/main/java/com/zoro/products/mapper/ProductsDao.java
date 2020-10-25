@@ -20,5 +20,5 @@ import java.util.Map;
 public interface ProductsDao extends BaseMapper<Products> {
 
     @Select("select * from products   where category=#{category} and sub_category=#{sucategory} order by id desc limit #{current},#{pageSize}")
-    List<Products> selectPage(Map<String , Object> map);
+    List<Products> customSelectPage(Map<String , Object> map);
 }

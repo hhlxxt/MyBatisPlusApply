@@ -25,8 +25,8 @@ public class CommentsServiceImpl extends ServiceImpl<CommentsDao, Comments> impl
     CommentsDao commentsDao ;
 
     @Override
-    public List<Comments> selectPage(Map<String, Object> map) {
-        return commentsDao.selectPage(map);
+    public List<Comments> customSelectPage(Map<String, Object> map) {
+        return commentsDao.customSelectPage(map);
     }
 
     @Override

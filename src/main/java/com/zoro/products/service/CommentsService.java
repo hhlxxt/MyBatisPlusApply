@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public interface CommentsService extends IService<Comments> {
 
-    List<Comments> selectPage(Map<String , Object> map);
+    List<Comments> customSelectPage(Map<String , Object> map);
 
     Long count(Map<String , Object> map);
 }

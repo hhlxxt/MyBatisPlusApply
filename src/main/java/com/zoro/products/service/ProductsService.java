@@ -16,5 +16,15 @@ import java.util.Map;
  */
 public interface ProductsService extends IService<Products> {
 
-   public List<Products> selectPage(Map<String , Object> map);
+   /**
+    * 自定义分页
+    *
+    * 注意：自定义分页方法名不能和mybatisplus提供的分页方法重名否则会报如下异常
+    * org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.binding.BindingException: Parameter 'category' not found. Available parameters are [ew, page, param1, param2]
+    *
+    *
+    * @param map
+    * @return
+    */
+   public List<Products> customSelectPage(Map<String , Object> map);
 }

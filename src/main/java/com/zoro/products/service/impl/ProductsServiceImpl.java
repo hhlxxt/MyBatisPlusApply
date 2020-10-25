@@ -26,7 +26,7 @@ public class ProductsServiceImpl extends ServiceImpl<ProductsDao, Products> impl
     ProductsDao productsDao;
 
     @Override
-    public List<Products> selectPage(Map<String , Object> map){
-       return productsDao.selectPage(map);
+    public List<Products> customSelectPage(Map<String , Object> map){
+       return productsDao.customSelectPage(map);
     }
 }

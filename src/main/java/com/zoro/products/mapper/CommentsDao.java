@@ -20,7 +20,7 @@ import java.util.Map;
 public interface CommentsDao extends BaseMapper<Comments> {
 
     @Select(" SELECT * FROM `comments` a ,(SELECT id FROM `comments` WHERE id>#{id} and  product_id =#{productId} AND is_good_comment =#{isGood} ORDER BY id   LIMIT #{pageSize} ) b WHERE a.`id` = b.id")
-    List<Comments> selectPage(Map<String , Object> map);
+    List<Comments> customSelectPage(Map<String , Object> map);
 
     @Select("SELECT count(*) FROM `comments` WHERE  product_id =#{productId} AND is_good_comment =#{isGood}")
     Long count(Map<String , Object> map);
